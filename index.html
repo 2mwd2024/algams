@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    Barebones reusable directory template.
+    - Replace placeholder text (Title goes here, Description goes here, etc.)
+      with your own content when ready.
+    - Keep the structure: each "item" is an <article> with data-* attributes.
+    - The script uses these data attributes for search, sorting and "star" persistence.
+  -->
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="robots" content="index,follow"/>
-  <title>All the Game's</title>
+  <title>Title goes here</title>
+
+  <!-- Fonts (kept for look & feel) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <!-- External stylesheet (keeps the original animations, colors and boxes) -->
   <link rel="stylesheet" href="./style.css"/>
 
+  <!-- Small inline tweaks kept (e.g., badges, starred outline, footer credit) -->
   <style>
+    /* --- Starred item: thick gold outline, keep white background --- */
     .ai-card.card-starred {
       background-color: #ffffff !important;
       background-image: none !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
       box-shadow: none !important;
       filter: none !important;
       border: 4px solid #f5c542 !important;
       position: relative;
       overflow: visible;
     }
+
     .ai-card.card-starred::before,
     .ai-card.card-starred::after {
       content: none !important;
       display: none !important;
     }
+
     .ai-card.card-starred .ai-card-header,
     .ai-card.card-starred .ai-text-content {
       background: transparent !important;
       background-image: none !important;
     }
 
-    .subtitle-lead {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-      max-width: 700px;
-      margin: 0 auto;
+    /* --- Category badges pastel pink square background --- */
+    .category-badge span {
+      background-color: #ffd6e8; /* pastel pink */
+      color: #444;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
     }
 
+    /* Footer credit styling */
     .footer-credit {
       text-align: center;
       font-family: 'Inter', sans-serif;
@@ -48,152 +69,170 @@
     }
   </style>
 </head>
+
 <body class="gjs-t-body">
 
+<!-- ============================
+     HEADER — Title + Search
+     Replace placeholder text with your own project title and subtitle.
+     ============================ -->
 <header class="header">
   <div class="header-container">
     <div class="header-content">
-      <h1 class="gjs-t-h1 heading-site-title">All the Game's</h1>
+      <!-- Page title -->
+      <h1 class="gjs-t-h1 heading-site-title">Title goes here</h1>
+
+      <!-- Short subtitle/lead (editable) -->
       <p class="subtitle-lead">
-        A fast, simple, and searchable collection of fun games. Find your favorite games instantly and star the ones you love!
+        Subtitle goes here — describe your directory or collection in one line.
       </p>
-      <form method="get" autocomplete="off" class="search-form">
+
+      <!-- Search form (searches by data-name and data-categories) -->
+      <form method="get" autocomplete="off" class="search-form" aria-label="Search form">
         <div class="search-row">
           <div class="gjs-t-border search-input-container">
+            <!-- Decorative search icon (kept for UI) -->
             <img src="https://api.iconify.design/lucide-search.svg" alt="Search" width="20" height="20" loading="lazy" class="search-icon"/>
-            <input type="text" id="searchInput" placeholder="Search by game or category (e.g., arcade, io, fun)" class="search-input-field"/>
+            <input type="text" id="searchInput" placeholder="Search by name or category (e.g., tools, design)" class="search-input-field" aria-label="Search input"/>
           </div>
+
+          <!-- Clear button (resets the search field) -->
           <button type="button" id="clearSearch" class="gjs-t-button clear-search-button">Clear</button>
         </div>
+
+        <!-- Result counter (updated by script) -->
         <small id="resultCount" aria-live="polite" class="search-result-count"></small>
       </form>
     </div>
   </div>
 </header>
 
+<!-- ============================
+     MAIN — Items grid
+     - Each <article> is a single reusable item card.
+     - Keep the structure (star button, icon, title, description, actions, categories).
+     - To add an item: copy one of the <article> blocks and update the data-* attributes.
+       * data-id        = unique identifier string (used for starred persistence)
+       * data-name      = searchable name (used by the search)
+       * data-categories= comma-separated categories (used by the search)
+       * data-starred   = "true" or "false" (initial visual state)
+     ============================ -->
 <main class="main-content">
   <section class="ai-grid-section">
-    <div id="aiGrid" class="ai-cards-grid">
+    <div id="itemsGrid" class="ai-cards-grid">
+      <!--
+        ITEM TEMPLATE 1
+        - Replace placeholders below with your content.
+        - Keep data-* attributes so the script can read and use them.
+      -->
+      <article data-id="item-1" data-name="Title goes here" data-categories="category1,category2" data-starred="false" class="gjs-t-border ai-card">
+        <!-- Star toggle: clicking saves to localStorage -->
+        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
 
-      <!-- Poki -->
-      <article data-id="game-poki" data-name="Poki" data-categories="games, arcade, platform" data-starred="true" class="gjs-t-border ai-card card-starred">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18"/></button>
         <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-gamepad.svg" alt="Poki" width="48"/></figure>
+          <!-- Icon / thumbnail -->
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+
           <div class="ai-text-content">
-            <h3 class="ai-name">Poki</h3>
-            <p class="ai-description">A massive online platform with thousands of free browser games.</p>
-            <div class="ai-actions"><a href="https://poki.com/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
+            <!-- Visible title -->
+            <h3 class="ai-name">Item title goes here</h3>
+
+            <!-- Short description -->
+            <p class="ai-description">Short description goes here — a one-line summary of the item.</p>
+
+            <!-- Action buttons (example: open link) -->
+            <div class="ai-actions">
+              <!-- Replace href when you have a real link; use target="_blank" to open externally -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+
+            <!-- Category badges
+                 - Keep the structure (ul > li > span)
+                 - Replace inner text with your category labels or leave as placeholders -->
+            <ul class="categories-list">
+              <li class="category-badge"><span>Category</span></li>
+              <li class="category-badge"><span>Category</span></li>
+            </ul>
           </div>
         </div>
       </article>
 
-      <!-- CrazyGames -->
-      <article data-id="game-crazygames" data-name="CrazyGames" data-categories="arcade, action, fun" data-starred="true" class="gjs-t-border ai-card card-starred">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18"/></button>
+      <!--
+        ITEM TEMPLATE 2
+        - Copy/paste this block to create additional items.
+        - Make sure each data-id is unique (e.g., item-2, item-3).
+      -->
+      <article data-id="item-2" data-name="Another title" data-categories="example,tools" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
         <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-zap.svg" alt="CrazyGames" width="48"/></figure>
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
+          </figure>
           <div class="ai-text-content">
-            <h3 class="ai-name">CrazyGames</h3>
-            <p class="ai-description">Play tons of free games from action to puzzle directly in your browser.</p>
-            <div class="ai-actions"><a href="https://www.crazygames.com/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
+            <h3 class="ai-name">Another title</h3>
+            <p class="ai-description">Another short description goes here.</p>
+            <div class="ai-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Category</span></li>
+            </ul>
           </div>
         </div>
       </article>
 
-      <!-- Neal.fun -->
-      <article data-id="game-nealfun" data-name="Neal.fun" data-categories="fun, creative, experiment" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-smile.svg" width="18"/></button>
+      <!--
+        ITEM TEMPLATE 3 (starred example)
+        - Start with data-starred="true" if you want it visually highlighted on first load.
+      -->
+      <article data-id="item-3" data-name="Sample item" data-categories="sample,design" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
         <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-rocket.svg" alt="Neal.fun" width="48"/></figure>
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
+          </figure>
           <div class="ai-text-content">
-            <h3 class="ai-name">Neal.fun</h3>
-            <p class="ai-description">A site full of interactive mini web games and creative experiments.</p>
-            <div class="ai-actions"><a href="https://neal.fun/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- What Beats Rock -->
-      <article data-id="game-whatbeatsrock" data-name="What Beats Rock" data-categories="fun, challenge, logic" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="18"/></button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-hand.svg" alt="What Beats Rock" width="48"/></figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">What Beats Rock</h3>
-            <p class="ai-description">A funny and creative spin on Rock Paper Scissors — find what truly beats rock!</p>
-            <div class="ai-actions"><a href="https://neal.fun/what-beats-rock/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Quick Draw -->
-      <article data-id="game-quickdraw" data-name="Quick Draw" data-categories="drawing, ai, fun" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="18"/></button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-pencil.svg" alt="Quick Draw" width="48"/></figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Quick, Draw!</h3>
-            <p class="ai-description">Draw objects quickly while an AI guesses what you're drawing.</p>
-            <div class="ai-actions"><a href="https://quickdraw.withgoogle.com/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Oimo Blob -->
-      <article data-id="game-oomiblob" data-name="Oimo Blob" data-categories="physics, io, fun" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="18"/></button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-droplet.svg" alt="Oimo Blob" width="48"/></figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Oimo Blob</h3>
-            <p class="ai-description">A physics sandbox where you can mess around with blob-like shapes.</p>
-            <div class="ai-actions"><a href="https://oimo.io/works/blob/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Oimo Bubbles -->
-      <article data-id="game-oomibubbles" data-name="Oimo Bubbles" data-categories="physics, io, bubbles" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="18"/></button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-circle.svg" alt="Oimo Bubbles" width="48"/></figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Oimo Bubbles</h3>
-            <p class="ai-description">Watch and play with floating bubbles powered by realistic physics.</p>
-            <div class="ai-actions"><a href="https://oimo.io/works/bubbles/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Tileman.io -->
-      <article data-id="game-tilemanio" data-name="Tileman.io" data-categories="io, multiplayer, action" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="18"/></button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-grid.svg" alt="Tileman.io" width="48"/></figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Tileman.io</h3>
-            <p class="ai-description">Capture territory and expand your tiles in this addictive multiplayer game.</p>
-            <div class="ai-actions"><a href="https://tileman.io/" target="_blank" class="gjs-t-button visit-ai-button">Play</a></div>
+            <h3 class="ai-name">Sample item</h3>
+            <p class="ai-description">Sample description — brief and to the point.</p>
+            <div class="ai-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Category</span></li>
+            </ul>
           </div>
         </div>
       </article>
 
     </div>
 
-    <div id="emptyState" class="empty-state">
+    <!-- Empty state: shown when no results match the search -->
+    <div id="emptyState" class="empty-state" style="display:none;">
       <div class="empty-state-content">
-        <img src="https://api.iconify.design/lucide-sparkles.svg" width="36" alt="No results"/>
-        <h2 class="gjs-t-h2">No games found</h2>
-        <p class="empty-state-message">Try a different name or category like “arcade”, “io”, or “fun”.</p>
+        <img src="https://api.iconify.design/lucide-sparkles.svg" width="36" height="36" alt="No results" loading="lazy" class="empty-state-icon"/>
+        <h2 class="gjs-t-h2">No items found</h2>
+        <p class="empty-state-message">Try a different name or category like “design”, “tools”, or “sample”.</p>
       </div>
     </div>
   </section>
 </main>
 
+<!-- ============================
+     FOOTER
+     - Keep the credit "made by not B0T" per your request.
+     - Replace the © text if you want a different label/year.
+     ============================ -->
 <footer class="footer">
   <div class="footer-container">
-    <span>© 2025 All the Game's</span>
+    <span>© 2025 Title goes here</span>
     <nav class="footer-nav">
       <a href="https://api.iconify.design/" target="_blank" rel="noopener noreferrer">Icons</a>
       <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Fonts</a>
@@ -205,25 +244,39 @@
   made by not B0T
 </div>
 
+<!-- ============================
+     SCRIPT — Search + Star logic
+     - This script reads data-* attributes (data-id, data-name, data-categories, data-starred).
+     - It persists starred ids to localStorage under STAR_KEY.
+     - To reuse: copy items, give unique data-id values, set data-name and data-categories.
+     ============================ -->
 <script>
 (function() {
-  const grid = document.getElementById('aiGrid');
+  // Main DOM references
+  const grid = document.getElementById('itemsGrid');
   const cards = Array.from(grid.querySelectorAll('.ai-card'));
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearSearch');
   const resultCount = document.getElementById('resultCount');
   const emptyState = document.getElementById('emptyState');
-  const STAR_KEY = 'allthegames-starred-ids';
 
+  // Key used to persist starred item ids in localStorage.
+  const STAR_KEY = 'starred-items-ids';
+
+  // Load starred ids (returns array) — safe parse.
   function loadStarred() {
     try {
       const raw = localStorage.getItem(STAR_KEY);
       return raw ? JSON.parse(raw) : [];
     } catch(e) { return []; }
   }
+
+  // Save starred ids (array) to localStorage.
   function saveStarred(ids) {
     try { localStorage.setItem(STAR_KEY, JSON.stringify(ids)); } catch(e){}
   }
+
+  // Update a single card's star visual state and icon.
   function setStarState(card, starred) {
     card.dataset.starred = starred ? 'true' : 'false';
     const btn = card.querySelector('.star-toggle-button img');
@@ -236,14 +289,15 @@
     }
   }
 
+  // Initialize starred state from storage.
   const starredIds = new Set(loadStarred());
   cards.forEach(card => {
     const id = card.dataset.id;
-    const preStarred = card.dataset.starred === 'true';
-    setStarState(card, preStarred || starredIds.has(id));
-    if(preStarred) starredIds.add(id);
+    const isStarred = starredIds.has(id);
+    setStarState(card, isStarred);
   });
 
+  // Attach click handlers to star buttons.
   cards.forEach(card => {
     const btn = card.querySelector('.star-toggle-button');
     if(!btn) return;
@@ -255,10 +309,11 @@
       if(nowStarred) starredIds.add(id);
       else starredIds.delete(id);
       saveStarred(Array.from(starredIds));
-      applySearch();
+      applySearch(); // re-render order (starred first)
     });
   });
 
+  // Sorting: starred items first, then alphabetical by data-name.
   function sortCards(a,b){
     const sa = a.dataset.starred==='true'?0:1;
     const sb = b.dataset.starred==='true'?0:1;
@@ -266,11 +321,13 @@
     return a.dataset.name.toLowerCase().localeCompare(b.dataset.name.toLowerCase());
   }
 
+  // Re-render the order of visible cards inside the grid.
   function renderOrder(){
     const visible = cards.filter(c=>c.style.display!=='none');
     visible.sort(sortCards).forEach(c=>grid.appendChild(c));
   }
 
+  // Main search/filter function.
   function applySearch(){
     const q = (searchInput.value||'').trim().toLowerCase();
     let shown=0;
@@ -278,16 +335,25 @@
       const name=(card.dataset.name||'').toLowerCase();
       const cats=(card.dataset.categories||'').toLowerCase();
       const match = !q || name.includes(q) || cats.includes(q);
-      card.style.display = match?'':'none';
+      card.style.display = match ? '' : 'none';
       if(match) shown++;
     });
-    emptyState.style.display = shown===0?'block':'none';
-    resultCount.textContent = q?`Showing ${shown} game${shown===1?'':'s'} for “${searchInput.value}”`:`Showing all games (${shown})`;
+
+    if(emptyState) emptyState.style.display = shown===0 ? 'block' : 'none';
+    if(resultCount) resultCount.textContent = q ? `Showing ${shown} result${shown===1?'':'s'} for “${searchInput.value}”` : `Showing all items (${shown})`;
+
     renderOrder();
   }
 
+  // Wire up input + clear button
   searchInput.addEventListener('input',applySearch);
-  clearBtn.addEventListener('click',()=>{ searchInput.value=''; applySearch(); searchInput.focus(); });
+  clearBtn.addEventListener('click',()=>{
+    searchInput.value='';
+    applySearch();
+    searchInput.focus();
+  });
+
+  // Initial render
   applySearch();
 })();
 </script>
