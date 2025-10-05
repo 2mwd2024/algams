@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
   <!--
-    Barebones reusable directory template.
-    - Replace placeholder text (Title goes here, Description goes here, etc.)
-      with your own content when ready.
-    - Keep the structure: each "item" is an <article> with data-* attributes.
-    - The script uses these data attributes for search, sorting and "star" persistence.
+    Barebones Reusable Directory Template
+    -------------------------------------
+    This is a flexible, content-neutral directory site.
+    You can use it for any type of collection (projects, tools, games, resources, etc.).
+
+    🔧 Editing Guidelines:
+    • Replace placeholder text (Title goes here, Description goes here, etc.)
+      with your own content.
+    • Keep the structure and classes the same for animations and styling to work.
+    • 🏷️ IMPORTANT: Use unified and simplified category tags across all items
+      (e.g., use "design", not "Design Tool" or "Designs") to keep search consistent.
   -->
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="robots" content="index,follow"/>
   <title>Title goes here</title>
 
-  <!-- Fonts (kept for look & feel) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
 
-  <!-- External stylesheet (keeps the original animations, colors and boxes) -->
+  <!-- External stylesheet (keeps layout, colors, and animations) -->
   <link rel="stylesheet" href="./style.css"/>
 
-  <!-- Small inline tweaks kept (e.g., badges, starred outline, footer credit) -->
   <style>
-    /* --- Starred item: thick gold outline, keep white background --- */
-    .ai-card.card-starred {
-      background-color: #ffffff !important;
+    /* Starred item styling (highlighted with a gold outline) */
+    .item-card.card-starred {
+      background-color: inherit !important;
       background-image: none !important;
       background-repeat: no-repeat !important;
       background-size: auto !important;
@@ -36,21 +40,15 @@
       overflow: visible;
     }
 
-    .ai-card.card-starred::before,
-    .ai-card.card-starred::after {
+    .item-card.card-starred::before,
+    .item-card.card-starred::after {
       content: none !important;
       display: none !important;
     }
 
-    .ai-card.card-starred .ai-card-header,
-    .ai-card.card-starred .ai-text-content {
-      background: transparent !important;
-      background-image: none !important;
-    }
-
-    /* --- Category badges pastel pink square background --- */
+    /* Category badge styling */
     .category-badge span {
-      background-color: #ffd6e8; /* pastel pink */
+      background-color: #ffd6e8;
       color: #444;
       border-radius: 6px;
       padding: 4px 8px;
@@ -74,33 +72,23 @@
 
 <!-- ============================
      HEADER — Title + Search
-     Replace placeholder text with your own project title and subtitle.
      ============================ -->
 <header class="header">
   <div class="header-container">
     <div class="header-content">
-      <!-- Page title -->
       <h1 class="gjs-t-h1 heading-site-title">Title goes here</h1>
-
-      <!-- Short subtitle/lead (editable) -->
       <p class="subtitle-lead">
-        Subtitle goes here — describe your directory or collection in one line.
+        Subtitle goes here — describe your directory or collection briefly.
       </p>
 
-      <!-- Search form (searches by data-name and data-categories) -->
       <form method="get" autocomplete="off" class="search-form" aria-label="Search form">
         <div class="search-row">
           <div class="gjs-t-border search-input-container">
-            <!-- Decorative search icon (kept for UI) -->
             <img src="https://api.iconify.design/lucide-search.svg" alt="Search" width="20" height="20" loading="lazy" class="search-icon"/>
-            <input type="text" id="searchInput" placeholder="Search by name or category (e.g., tools, design)" class="search-input-field" aria-label="Search input"/>
+            <input type="text" id="searchInput" placeholder="Search by name or category" class="search-input-field" aria-label="Search input"/>
           </div>
-
-          <!-- Clear button (resets the search field) -->
           <button type="button" id="clearSearch" class="gjs-t-button clear-search-button">Clear</button>
         </div>
-
-        <!-- Result counter (updated by script) -->
         <small id="resultCount" aria-live="polite" class="search-result-count"></small>
       </form>
     </div>
@@ -108,51 +96,37 @@
 </header>
 
 <!-- ============================
-     MAIN — Items grid
-     - Each <article> is a single reusable item card.
-     - Keep the structure (star button, icon, title, description, actions, categories).
-     - To add an item: copy one of the <article> blocks and update the data-* attributes.
-       * data-id        = unique identifier string (used for starred persistence)
-       * data-name      = searchable name (used by the search)
-       * data-categories= comma-separated categories (used by the search)
-       * data-starred   = "true" or "false" (initial visual state)
+     MAIN — Directory Grid
      ============================ -->
 <main class="main-content">
-  <section class="ai-grid-section">
-    <div id="itemsGrid" class="ai-cards-grid">
+  <section class="items-section">
+    <div id="itemsGrid" class="items-grid">
+
       <!--
-        ITEM TEMPLATE 1
-        - Replace placeholders below with your content.
-        - Keep data-* attributes so the script can read and use them.
+        ITEM TEMPLATE
+        -------------
+        Each <article> is a reusable item card.
+        Replace placeholder text and links with your own.
+        🏷️ Tip: Keep category tags unified and consistent across all entries.
       -->
-      <article data-id="item-1" data-name="Title goes here" data-categories="category1,category2" data-starred="false" class="gjs-t-border ai-card">
-        <!-- Star toggle: clicking saves to localStorage -->
-        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+      <article data-id="item-1" data-name="Title goes here" data-categories="category1,category2" data-starred="false" class="gjs-t-border item-card">
+        <button type="button" aria-label="Toggle star" title="Mark as favorite" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
 
-        <div class="ai-card-header">
-          <!-- Icon / thumbnail -->
-          <figure class="ai-icon-figure">
+        <div class="item-card-header">
+          <figure class="item-icon-figure">
             <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
           </figure>
 
-          <div class="ai-text-content">
-            <!-- Visible title -->
-            <h3 class="ai-name">Item title goes here</h3>
+          <div class="item-text-content">
+            <h3 class="item-name">Item title goes here</h3>
+            <p class="item-description">Description goes here — short and simple.</p>
 
-            <!-- Short description -->
-            <p class="ai-description">Short description goes here — a one-line summary of the item.</p>
-
-            <!-- Action buttons (example: open link) -->
-            <div class="ai-actions">
-              <!-- Replace href when you have a real link; use target="_blank" to open externally -->
-              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            <div class="item-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-item-button">Open</a>
             </div>
 
-            <!-- Category badges
-                 - Keep the structure (ul > li > span)
-                 - Replace inner text with your category labels or leave as placeholders -->
             <ul class="categories-list">
               <li class="category-badge"><span>Category</span></li>
               <li class="category-badge"><span>Category</span></li>
@@ -161,25 +135,24 @@
         </div>
       </article>
 
-      <!--
-        ITEM TEMPLATE 2
-        - Copy/paste this block to create additional items.
-        - Make sure each data-id is unique (e.g., item-2, item-3).
-      -->
-      <article data-id="item-2" data-name="Another title" data-categories="example,tools" data-starred="false" class="gjs-t-border ai-card">
-        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+      <article data-id="item-2" data-name="Another item" data-categories="tools,example" data-starred="false" class="gjs-t-border item-card">
+        <button type="button" aria-label="Toggle star" title="Mark as favorite" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure">
+
+        <div class="item-card-header">
+          <figure class="item-icon-figure">
             <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Another title</h3>
-            <p class="ai-description">Another short description goes here.</p>
-            <div class="ai-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+
+          <div class="item-text-content">
+            <h3 class="item-name">Another title</h3>
+            <p class="item-description">Another short description goes here.</p>
+
+            <div class="item-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-item-button">Open</a>
             </div>
+
             <ul class="categories-list">
               <li class="category-badge"><span>Category</span></li>
             </ul>
@@ -187,24 +160,24 @@
         </div>
       </article>
 
-      <!--
-        ITEM TEMPLATE 3 (starred example)
-        - Start with data-starred="true" if you want it visually highlighted on first load.
-      -->
-      <article data-id="item-3" data-name="Sample item" data-categories="sample,design" data-starred="true" class="gjs-t-border ai-card card-starred">
-        <button type="button" aria-label="Toggle star" title="Star this item" class="star-toggle-button">
+      <article data-id="item-3" data-name="Sample item" data-categories="sample,design" data-starred="true" class="gjs-t-border item-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Mark as favorite" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="ai-card-header">
-          <figure class="ai-icon-figure">
+
+        <div class="item-card-header">
+          <figure class="item-icon-figure">
             <img src="https://api.iconify.design/lucide-box.svg" alt="Item Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="ai-text-content">
-            <h3 class="ai-name">Sample item</h3>
-            <p class="ai-description">Sample description — brief and to the point.</p>
-            <div class="ai-actions">
-              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+
+          <div class="item-text-content">
+            <h3 class="item-name">Sample item</h3>
+            <p class="item-description">Sample description — keep it concise.</p>
+
+            <div class="item-actions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-item-button">Open</a>
             </div>
+
             <ul class="categories-list">
               <li class="category-badge"><span>Category</span></li>
             </ul>
@@ -214,12 +187,12 @@
 
     </div>
 
-    <!-- Empty state: shown when no results match the search -->
+    <!-- Empty state (shown when nothing matches search) -->
     <div id="emptyState" class="empty-state" style="display:none;">
       <div class="empty-state-content">
         <img src="https://api.iconify.design/lucide-sparkles.svg" width="36" height="36" alt="No results" loading="lazy" class="empty-state-icon"/>
         <h2 class="gjs-t-h2">No items found</h2>
-        <p class="empty-state-message">Try a different name or category like “design”, “tools”, or “sample”.</p>
+        <p class="empty-state-message">Try a different name or category.</p>
       </div>
     </div>
   </section>
@@ -227,8 +200,6 @@
 
 <!-- ============================
      FOOTER
-     - Keep the credit "made by not B0T" per your request.
-     - Replace the © text if you want a different label/year.
      ============================ -->
 <footer class="footer">
   <div class="footer-container">
@@ -245,25 +216,19 @@
 </div>
 
 <!-- ============================
-     SCRIPT — Search + Star logic
-     - This script reads data-* attributes (data-id, data-name, data-categories, data-starred).
-     - It persists starred ids to localStorage under STAR_KEY.
-     - To reuse: copy items, give unique data-id values, set data-name and data-categories.
+     SCRIPT — Search & Star Logic
      ============================ -->
 <script>
 (function() {
-  // Main DOM references
   const grid = document.getElementById('itemsGrid');
-  const cards = Array.from(grid.querySelectorAll('.ai-card'));
+  const cards = Array.from(grid.querySelectorAll('.item-card'));
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearSearch');
   const resultCount = document.getElementById('resultCount');
   const emptyState = document.getElementById('emptyState');
 
-  // Key used to persist starred item ids in localStorage.
   const STAR_KEY = 'starred-items-ids';
 
-  // Load starred ids (returns array) — safe parse.
   function loadStarred() {
     try {
       const raw = localStorage.getItem(STAR_KEY);
@@ -271,12 +236,10 @@
     } catch(e) { return []; }
   }
 
-  // Save starred ids (array) to localStorage.
   function saveStarred(ids) {
     try { localStorage.setItem(STAR_KEY, JSON.stringify(ids)); } catch(e){}
   }
 
-  // Update a single card's star visual state and icon.
   function setStarState(card, starred) {
     card.dataset.starred = starred ? 'true' : 'false';
     const btn = card.querySelector('.star-toggle-button img');
@@ -289,7 +252,6 @@
     }
   }
 
-  // Initialize starred state from storage.
   const starredIds = new Set(loadStarred());
   cards.forEach(card => {
     const id = card.dataset.id;
@@ -297,7 +259,6 @@
     setStarState(card, isStarred);
   });
 
-  // Attach click handlers to star buttons.
   cards.forEach(card => {
     const btn = card.querySelector('.star-toggle-button');
     if(!btn) return;
@@ -309,11 +270,10 @@
       if(nowStarred) starredIds.add(id);
       else starredIds.delete(id);
       saveStarred(Array.from(starredIds));
-      applySearch(); // re-render order (starred first)
+      applySearch();
     });
   });
 
-  // Sorting: starred items first, then alphabetical by data-name.
   function sortCards(a,b){
     const sa = a.dataset.starred==='true'?0:1;
     const sb = b.dataset.starred==='true'?0:1;
@@ -321,13 +281,11 @@
     return a.dataset.name.toLowerCase().localeCompare(b.dataset.name.toLowerCase());
   }
 
-  // Re-render the order of visible cards inside the grid.
   function renderOrder(){
     const visible = cards.filter(c=>c.style.display!=='none');
     visible.sort(sortCards).forEach(c=>grid.appendChild(c));
   }
 
-  // Main search/filter function.
   function applySearch(){
     const q = (searchInput.value||'').trim().toLowerCase();
     let shown=0;
@@ -345,7 +303,6 @@
     renderOrder();
   }
 
-  // Wire up input + clear button
   searchInput.addEventListener('input',applySearch);
   clearBtn.addEventListener('click',()=>{
     searchInput.value='';
@@ -353,7 +310,6 @@
     searchInput.focus();
   });
 
-  // Initial render
   applySearch();
 })();
 </script>
