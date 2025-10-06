@@ -5,319 +5,575 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="robots" content="index,follow"/>
   <title>All the Game's</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./style.css"/>
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fafafa;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    p.subtitle-lead {
-      color: #555;
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-    .search-form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .search-row {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      align-items: center;
-    }
-    .search-input-container {
-      display: flex;
-      align-items: center;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      padding: 8px 10px;
-      flex-grow: 1;
-      background: #fff;
-    }
-    .search-input-container img {
-      margin-right: 8px;
-    }
-    .search-input-field {
-      border: none;
-      outline: none;
-      flex-grow: 1;
-      font-size: 1rem;
-    }
-    .clear-search-button {
-      background: #eee;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      cursor: pointer;
-    }
-    #resultCount {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    .ai-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-      padding: 30px;
-    }
-    .ai-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
+    /* --- Starred cards: thick gold outline, keep white background --- */
+    .ai-card.card-starred {
+      background-color: #ffffff !important;
+      background-image: none !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
+      box-shadow: none !important;
+      filter: none !important;
+      border: 4px solid #f5c542 !important;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 2px solid #eee;
+      overflow: visible;
     }
-    .ai-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+    .ai-card.card-starred::before,
+    .ai-card.card-starred::after {
+      content: none !important;
+      display: none !important;
     }
-    .star-toggle-button {
-      background: none;
-      border: none;
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      cursor: pointer;
+
+    .ai-card.card-starred .ai-card-header,
+    .ai-card.card-starred .ai-text-content {
+      background: transparent !important;
+      background-image: none !important;
     }
-    .ai-name {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      margin: 10px 0 6px;
-    }
-    .ai-description {
-      color: #555;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-    .visit-ai-button {
-      background: #333;
-      color: #fff;
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 8px;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
-    .categories-list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
+
+    /* --- Category badges pastel pink square background --- */
     .category-badge span {
-      background-color: #ffd9e8; /* pastel pink */
-      color: #333;
+      background-color: #ffd6e8; /* pastel pink */
+      color: #444;
       border-radius: 6px;
       padding: 4px 8px;
       font-size: 0.8rem;
       font-weight: 500;
+      display: inline-block;
     }
-    .card-starred {
-      border: 3px solid #f5c542;
-    }
-    .empty-state {
+
+    /* Footer credit styling */
+    .footer-credit {
       text-align: center;
-      margin-top: 50px;
-      display: none;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       color: #666;
-    }
-    .footer-credit {
-      margin-top: 10px;
+      margin: 12px 0 20px;
     }
   </style>
 </head>
+<body class="gjs-t-body">
 
-<body>
-  <header>
-    <h1>All the Game's</h1>
-    <p class="subtitle-lead">A fast, clean, and searchable collection of the best browser games online.</p>
-    <form class="search-form">
-      <div class="search-row">
-        <div class="search-input-container">
-          <img src="https://api.iconify.design/lucide-search.svg" width="20" height="20" alt="Search"/>
-          <input type="text" id="searchInput" placeholder="Search games or categories..." class="search-input-field"/>
+<header class="header">
+  <div class="header-container">
+    <div class="header-content">
+      <h1 class="gjs-t-h1 heading-site-title">All the Game's</h1>
+      <p class="subtitle-lead">
+        A clean, fast, and searchable repository of browser games. Type a game or category to find it instantly.
+      </p>
+      <form method="get" autocomplete="off" class="search-form">
+        <div class="search-row">
+          <div class="gjs-t-border search-input-container">
+            <img src="https://api.iconify.design/lucide-search.svg" alt="Search" width="20" height="20" loading="lazy" class="search-icon"/>
+            <input type="text" id="searchInput" placeholder="Search by game or category (e.g., arcade, io, fun, starred)" class="search-input-field"/>
+          </div>
+          <button type="button" id="clearSearch" class="gjs-t-button clear-search-button">Clear</button>
         </div>
-        <button type="button" id="clearSearch" class="clear-search-button">Clear</button>
+        <small id="resultCount" aria-live="polite" class="search-result-count"></small>
+      </form>
+    </div>
+  </div>
+</header>
+
+<main class="main-content">
+  <section class="ai-grid-section">
+    <div id="aiGrid" class="ai-cards-grid">
+
+      <!-- --- Original AI entries (kept from source) --- -->
+      <!-- ChatGPT -->
+      <article data-id="ai-chatgpt" data-name="ChatGPT" data-categories="chat, writing, code, gpt" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-bot.svg" alt="ChatGPT Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">ChatGPT</h3>
+            <p class="ai-description">Conversational AI for chatting, writing, brainstorming, and coding assistance.</p>
+            <div class="ai-actions">
+              <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Chat</span></li>
+              <li class="category-badge"><span>Writing</span></li>
+              <li class="category-badge"><span>Code</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gemini -->
+      <article data-id="ai-gemini" data-name="Gemini" data-categories="chat, writing, search" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-bot.svg" alt="Gemini Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Gemini</h3>
+            <p class="ai-description">AI assistant by Google for chat, writing, and search tasks.</p>
+            <div class="ai-actions">
+              <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Chat</span></li>
+              <li class="category-badge"><span>Writing</span></li>
+              <li class="category-badge"><span>Search</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- DeepSeek -->
+      <article data-id="ai-deepseek" data-name="DeepSeek" data-categories="chat, writing, search" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-bot.svg" alt="DeepSeek Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">DeepSeek</h3>
+            <p class="ai-description">Conversational AI search engine for intelligent answers.</p>
+            <div class="ai-actions">
+              <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Chat</span></li>
+              <li class="category-badge"><span>Search</span></li>
+              <li class="category-badge"><span>Writing</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Leonardo AI -->
+      <article data-id="ai-leonardo" data-name="Leonardo AI" data-categories="images, art, design" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-image.svg" alt="Leonardo AI Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Leonardo AI</h3>
+            <p class="ai-description">AI platform for generating images and creative designs.</p>
+            <div class="ai-actions">
+              <a href="https://app.leonardo.ai/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Images</span></li>
+              <li class="category-badge"><span>Art</span></li>
+              <li class="category-badge"><span>Design</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Grok -->
+      <article data-id="ai-grok" data-name="Grok" data-categories="chat, writing, code, productivity" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-bot.svg" alt="Grok Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Grok</h3>
+            <p class="ai-description">AI assistant for developers and productivity tasks.</p>
+            <div class="ai-actions">
+              <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Chat</span></li>
+              <li class="category-badge"><span>Writing</span></li>
+              <li class="category-badge"><span>Code</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gamma -->
+      <article data-id="ai-gamma" data-name="Gamma" data-categories="presentations, productivity, design" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-bot.svg" alt="Gamma Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Gamma</h3>
+            <p class="ai-description">AI-powered tool for creating presentations and visuals.</p>
+            <div class="ai-actions">
+              <a href="https://gamma.app/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Presentations</span></li>
+              <li class="category-badge"><span>Productivity</span></li>
+              <li class="category-badge"><span>Design</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Suno -->
+      <article data-id="ai-suno" data-name="Suno" data-categories="audio, music, voice, creative" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-music.svg" alt="Suno Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Suno</h3>
+            <p class="ai-description">AI platform for generating music and audio content.</p>
+            <div class="ai-actions">
+              <a href="https://suno.com/create" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Audio</span></li>
+              <li class="category-badge"><span>Music</span></li>
+              <li class="category-badge"><span>Creative</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Venngage -->
+      <article data-id="ai-venngage" data-name="Venngage" data-categories="design, infographic, productivity" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this tool" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
+            <img src="https://api.iconify.design/lucide-image.svg" alt="Venngage Icon" width="48" height="48" loading="lazy"/>
+          </figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Venngage</h3>
+            <p class="ai-description">AI-powered infographic and design tool for visuals.</p>
+            <div class="ai-actions">
+              <a href="https://infograph.venngage.com/universal-generator" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Open</a>
+            </div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Design</span></li>
+              <li class="category-badge"><span>Productivity</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- --- Games (added) --- -->
+
+      <!-- Poki -->
+      <article data-id="game-poki" data-name="Poki" data-categories="games, arcade, platform" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-gamepad.svg" alt="Poki" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Poki</h3>
+            <p class="ai-description">A massive online platform with thousands of free browser games.</p>
+            <div class="ai-actions"><a href="https://poki.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Games</span></li>
+              <li class="category-badge"><span>Arcade</span></li>
+              <li class="category-badge"><span>Platform</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- CrazyGames -->
+      <article data-id="game-crazygames" data-name="CrazyGames" data-categories="arcade, action, fun" data-starred="true" class="gjs-t-border ai-card card-starred">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-zap.svg" alt="CrazyGames" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">CrazyGames</h3>
+            <p class="ai-description">Play tons of free games from action to puzzle directly in your browser.</p>
+            <div class="ai-actions"><a href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Arcade</span></li>
+              <li class="category-badge"><span>Action</span></li>
+              <li class="category-badge"><span>Fun</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Neal.fun -->
+      <article data-id="game-nealfun" data-name="Neal.fun" data-categories="fun, creative, experiment" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-rocket.svg" alt="Neal.fun" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Neal.fun</h3>
+            <p class="ai-description">A site full of interactive mini web games and creative experiments.</p>
+            <div class="ai-actions"><a href="https://neal.fun/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Fun</span></li>
+              <li class="category-badge"><span>Creative</span></li>
+              <li class="category-badge"><span>Experiment</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- What Beats Rock -->
+      <article data-id="game-whatbeatsrock" data-name="What Beats Rock" data-categories="fun, challenge, logic" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-hand.svg" alt="What Beats Rock" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">What Beats Rock</h3>
+            <p class="ai-description">A funny and creative spin on Rock Paper Scissors — find what truly beats rock!</p>
+            <div class="ai-actions"><a href="https://neal.fun/what-beats-rock/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Fun</span></li>
+              <li class="category-badge"><span>Challenge</span></li>
+              <li class="category-badge"><span>Logic</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Quick Draw -->
+      <article data-id="game-quickdraw" data-name="Quick, Draw!" data-categories="drawing, ai, fun" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-pencil.svg" alt="Quick Draw" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Quick, Draw!</h3>
+            <p class="ai-description">Draw objects quickly while an AI guesses what you're drawing.</p>
+            <div class="ai-actions"><a href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Drawing</span></li>
+              <li class="category-badge"><span>AI</span></li>
+              <li class="category-badge"><span>Fun</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Oimo Blob -->
+      <article data-id="game-oomiblob" data-name="Oimo Blob" data-categories="physics, io, fun" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-droplet.svg" alt="Oimo Blob" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Oimo Blob</h3>
+            <p class="ai-description">A physics sandbox where you can mess around with blob-like shapes.</p>
+            <div class="ai-actions"><a href="https://oimo.io/works/blob/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Physics</span></li>
+              <li class="category-badge"><span>IO</span></li>
+              <li class="category-badge"><span>Fun</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Oimo Bubbles -->
+      <article data-id="game-oomibubbles" data-name="Oimo Bubbles" data-categories="physics, io, bubbles" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-circle.svg" alt="Oimo Bubbles" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Oimo Bubbles</h3>
+            <p class="ai-description">Watch and play with floating bubbles powered by realistic physics.</p>
+            <div class="ai-actions"><a href="https://oimo.io/works/bubbles/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>Physics</span></li>
+              <li class="category-badge"><span>IO</span></li>
+              <li class="category-badge"><span>Bubbles</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tileman.io -->
+      <article data-id="game-tilemanio" data-name="Tileman.io" data-categories="io, multiplayer, action" data-starred="false" class="gjs-t-border ai-card">
+        <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
+          <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
+        </button>
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure"><img src="https://api.iconify.design/lucide-grid.svg" alt="Tileman.io" width="48" height="48" loading="lazy"/></figure>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Tileman.io</h3>
+            <p class="ai-description">Capture territory and expand your tiles in this addictive multiplayer game.</p>
+            <div class="ai-actions"><a href="https://tileman.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play</a></div>
+            <ul class="categories-list">
+              <li class="category-badge"><span>IO</span></li>
+              <li class="category-badge"><span>Multiplayer</span></li>
+              <li class="category-badge"><span>Action</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div id="emptyState" class="empty-state">
+      <div class="empty-state-content">
+        <img src="https://api.iconify.design/lucide-sparkles.svg" width="36" height="36" alt="No results" loading="lazy" class="empty-state-icon"/>
+        <h2 class="gjs-t-h2">No games found</h2>
+        <p class="empty-state-message">Try a different name or category like “arcade”, “io”, or “fun”.</p>
       </div>
-      <small id="resultCount">Showing all games</small>
-    </form>
-  </header>
+    </div>
+  </section>
+</main>
 
-  <main>
-    <section>
-      <div id="aiGrid" class="ai-cards-grid">
-        <!-- Poki -->
-        <article class="ai-card" data-id="poki" data-name="Poki" data-categories="games arcade platform">
-          <button class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="20" height="20"/></button>
-          <h3 class="ai-name">Poki</h3>
-          <p class="ai-description">A massive online platform with thousands of free browser games.</p>
-          <a href="https://poki.com/" target="_blank" class="visit-ai-button">Play</a>
-          <ul class="categories-list">
-            <li class="category-badge"><span>Games</span></li>
-            <li class="category-badge"><span>Arcade</span></li>
-            <li class="category-badge"><span>Platform</span></li>
-          </ul>
-        </article>
+<footer class="footer">
+  <div class="footer-container">
+    <span>© 2025 All the Game's</span>
+    <nav class="footer-nav">
+      <a href="https://api.iconify.design/" target="_blank" rel="noopener noreferrer">Icons</a>
+      <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Fonts</a>
+    </nav>
+  </div>
+</footer>
 
-        <!-- CrazyGames -->
-        <article class="ai-card" data-id="crazygames" data-name="CrazyGames" data-categories="arcade action fun">
-          <button class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="20" height="20"/></button>
-          <h3 class="ai-name">CrazyGames</h3>
-          <p class="ai-description">Play tons of free games from action to puzzle directly in your browser.</p>
-          <a href="https://www.crazygames.com/" target="_blank" class="visit-ai-button">Play</a>
-          <ul class="categories-list">
-            <li class="category-badge"><span>Arcade</span></li>
-            <li class="category-badge"><span>Action</span></li>
-            <li class="category-badge"><span>Fun</span></li>
-          </ul>
-        </article>
+<div class="footer-credit">
+  made by not B0T
+</div>
 
-        <!-- Neal.fun -->
-        <article class="ai-card" data-id="nealfun" data-name="Neal.fun" data-categories="fun creative experiment">
-          <button class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="20" height="20"/></button>
-          <h3 class="ai-name">Neal.fun</h3>
-          <p class="ai-description">A site full of interactive mini web games and creative experiments.</p>
-          <a href="https://neal.fun/" target="_blank" class="visit-ai-button">Play</a>
-          <ul class="categories-list">
-            <li class="category-badge"><span>Fun</span></li>
-            <li class="category-badge"><span>Creative</span></li>
-            <li class="category-badge"><span>Experiment</span></li>
-          </ul>
-        </article>
+<script>
+(function() {
+  const grid = document.getElementById('aiGrid');
+  const cards = Array.from(grid.querySelectorAll('.ai-card'));
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearSearch');
+  const resultCount = document.getElementById('resultCount');
+  const emptyState = document.getElementById('emptyState');
 
-        <!-- Quick Draw -->
-        <article class="ai-card" data-id="quickdraw" data-name="Quick Draw" data-categories="drawing ai fun">
-          <button class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="20" height="20"/></button>
-          <h3 class="ai-name">Quick, Draw!</h3>
-          <p class="ai-description">Draw objects quickly while an AI guesses what you're drawing.</p>
-          <a href="https://quickdraw.withgoogle.com/" target="_blank" class="visit-ai-button">Play</a>
-          <ul class="categories-list">
-            <li class="category-badge"><span>Drawing</span></li>
-            <li class="category-badge"><span>AI</span></li>
-            <li class="category-badge"><span>Fun</span></li>
-          </ul>
-        </article>
+  const STAR_KEY = 'allthegames-starred-ids';
 
-        <!-- Oimo Blob -->
-        <article class="ai-card" data-id="oomiblob" data-name="Oimo Blob" data-categories="physics io fun">
-          <button class="star-toggle-button"><img src="https://api.iconify.design/lucide-star.svg" width="20" height="20"/></button>
-          <h3 class="ai-name">Oimo Blob</h3>
-          <p class="ai-description">A physics sandbox where you can mess around with blob-like shapes.</p>
-          <a href="https://oimo.io/works/blob/" target="_blank" class="visit-ai-button">Play</a>
-          <ul class="categories-list">
-            <li class="category-badge"><span>Physics</span></li>
-            <li class="category-badge"><span>IO</span></li>
-            <li class="category-badge"><span>Fun</span></li>
-          </ul>
-        </article>
-      </div>
+  function loadStarred() {
+    try {
+      const raw = localStorage.getItem(STAR_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch(e) { return []; }
+  }
 
-      <div id="emptyState" class="empty-state">
-        <img src="https://api.iconify.design/lucide-sparkles.svg" width="40" height="40" alt="No results"/>
-        <h2>No games found</h2>
-        <p>Try another search term or category like “fun”, “arcade”, or “io”.</p>
-      </div>
-    </section>
-  </main>
+  function saveStarred(ids) {
+    try { localStorage.setItem(STAR_KEY, JSON.stringify(ids)); } catch(e){}
+  }
 
-  <footer>
-    <div>© 2025 All the Game's</div>
-    <div class="footer-credit">made by not B0T</div>
-  </footer>
-
-  <script>
-    const cards = document.querySelectorAll('.ai-card');
-    const searchInput = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearSearch');
-    const resultCount = document.getElementById('resultCount');
-    const emptyState = document.getElementById('emptyState');
-    const STORAGE_KEY = "allthegames-stars";
-
-    function loadStars() {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  function setStarState(card, starred) {
+    card.dataset.starred = starred ? 'true' : 'false';
+    const btnImg = card.querySelector('.star-toggle-button img');
+    if(starred) {
+      card.classList.add('card-starred');
+      if(btnImg) btnImg.src = 'https://api.iconify.design/lucide-star.svg?color=%23f5c542';
+    } else {
+      card.classList.remove('card-starred');
+      if(btnImg) btnImg.src = 'https://api.iconify.design/lucide-star.svg';
     }
-    function saveStars(arr) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
-    }
+  }
 
-    function updateStarVisual(card, isStarred) {
-      const img = card.querySelector('.star-toggle-button img');
-      if (isStarred) {
-        card.classList.add('card-starred');
-        img.src = "https://api.iconify.design/lucide-star.svg?color=%23f5c542";
-      } else {
-        card.classList.remove('card-starred');
-        img.src = "https://api.iconify.design/lucide-star.svg";
-      }
-    }
+  // initialize starred set merging pre-starred attributes and stored preferences
+  const stored = loadStarred();
+  const starredIds = new Set(stored);
 
-    let starred = new Set(loadStars());
-    cards.forEach(c => updateStarVisual(c, starred.has(c.dataset.id)));
+  cards.forEach(card => {
+    const id = card.dataset.id;
+    const preStarred = card.dataset.starred === 'true';
+    // if pre-starred in markup, ensure it's included
+    if (preStarred) starredIds.add(id);
+  });
 
-    document.querySelectorAll('.star-toggle-button').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const card = btn.closest('.ai-card');
-        const id = card.dataset.id;
-        if (starred.has(id)) starred.delete(id);
-        else starred.add(id);
-        saveStars([...starred]);
-        updateStarVisual(card, starred.has(id));
-      });
+  // apply visual state based on starredIds
+  cards.forEach(card => {
+    const id = card.dataset.id;
+    setStarState(card, starredIds.has(id));
+  });
+
+  // toggle handlers
+  cards.forEach(card => {
+    const btn = card.querySelector('.star-toggle-button');
+    if(!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const id = card.dataset.id;
+      const nowStarred = card.dataset.starred !== 'true';
+      setStarState(card, nowStarred);
+      if(nowStarred) starredIds.add(id);
+      else starredIds.delete(id);
+      saveStarred(Array.from(starredIds));
+      applySearch(); // re-sort and update counts
+    });
+  });
+
+  function sortCards(a,b){
+    const sa = a.dataset.starred==='true'?0:1;
+    const sb = b.dataset.starred==='true'?0:1;
+    if(sa!==sb) return sa-sb;
+    return a.dataset.name.toLowerCase().localeCompare(b.dataset.name.toLowerCase());
+  }
+
+  function renderOrder(){
+    const visible = cards.filter(c=>c.style.display!=='none');
+    visible.sort(sortCards).forEach(c=>grid.appendChild(c));
+  }
+
+  function applySearch(){
+    const q = (searchInput.value||'').trim().toLowerCase();
+    let shown=0;
+    cards.forEach(card=>{
+      const name=(card.dataset.name||'').toLowerCase();
+      const cats=(card.dataset.categories||'').toLowerCase();
+      const match = !q || name.includes(q) || cats.includes(q);
+      card.style.display = match?'':'none';
+      if(match) shown++;
     });
 
-    function filterCards() {
-      const term = searchInput.value.toLowerCase().trim();
-      let shown = 0;
-      cards.forEach(card => {
-        const text = (card.dataset.name + " " + card.dataset.categories).toLowerCase();
-        const visible = text.includes(term);
-        card.style.display = visible ? "" : "none";
-        if (visible) shown++;
-      });
-      emptyState.style.display = shown ? "none" : "block";
-      resultCount.textContent = shown === cards.length
-        ? "Showing all games"
-        : shown === 0
-        ? "No games found"
-        : `Showing ${shown} of ${cards.length} games`;
+    if(emptyState) emptyState.style.display = shown===0?'block':'none';
+    if(resultCount) {
+      resultCount.textContent = q
+        ? `Showing ${shown} result${shown===1?'':'s'} for “${searchInput.value}”`
+        : `Showing all games (${shown})`;
     }
 
-    searchInput.addEventListener('input', filterCards);
-    clearBtn.addEventListener('click', () => {
-      searchInput.value = "";
-      filterCards();
-    });
+    renderOrder();
+  }
 
-    filterCards();
-  </script>
+  searchInput.addEventListener('input',applySearch);
+  clearBtn.addEventListener('click',()=>{
+    searchInput.value='';
+    applySearch();
+    searchInput.focus();
+  });
+
+  applySearch();
+})();
+</script>
+
 </body>
 </html>
