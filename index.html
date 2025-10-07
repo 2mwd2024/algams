@@ -12,7 +12,7 @@
 
   <style>
     /* --- Starred cards: thick gold outline, keep white background --- */
-    .game-card.card-starred {
+    .ai-card.card-starred {
       background-color: #ffffff !important;
       background-image: none !important;
       background-repeat: no-repeat !important;
@@ -24,14 +24,14 @@
       overflow: visible;
     }
 
-    .game-card.card-starred::before,
-    .game-card.card-starred::after {
+    .ai-card.card-starred::before,
+    .ai-card.card-starred::after {
       content: none !important;
       display: none !important;
     }
 
-    .game-card.card-starred .game-card-header,
-    .game-card.card-starred .game-text-content {
+    .ai-card.card-starred .ai-card-header,
+    .ai-card.card-starred .ai-text-content {
       background: transparent !important;
       background-image: none !important;
     }
@@ -81,23 +81,23 @@
 </header>
 
 <main class="main-content">
-  <section class="game-grid-section">
-    <div id="gameGrid" class="game-cards-grid">
+  <section class="ai-grid-section">
+    <div id="aiGrid" class="ai-cards-grid">
 
       <!-- Poki -->
-      <article data-id="game-poki" data-name="Poki" data-categories="arcade, action, puzzle, casual" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-poki" data-name="Poki" data-categories="arcade, action, puzzle, casual" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-gamepad-2.svg" alt="Poki Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Poki</h3>
-            <p class="game-description">Online gaming platform with a variety of arcade, action, and puzzle games.</p>
-            <div class="game-actions">
-              <a href="https://poki.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Poki</h3>
+            <p class="ai-description">Online gaming platform with a variety of arcade, action, and puzzle games.</p>
+            <div class="ai-actions">
+              <a href="https://poki.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Arcade</span></li>
@@ -109,19 +109,19 @@
       </article>
 
       <!-- Crazy Games -->
-      <article data-id="game-crazygames" data-name="Crazy Games" data-categories="action, racing, multiplayer" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-crazygames" data-name="Crazy Games" data-categories="action, racing, multiplayer" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-gamepad-2.svg" alt="Crazy Games Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Crazy Games</h3>
-            <p class="game-description">Platform for action-packed and multiplayer browser games.</p>
-            <div class="game-actions">
-              <a href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Crazy Games</h3>
+            <p class="ai-description">Platform for action-packed and multiplayer browser games.</p>
+            <div class="ai-actions">
+              <a href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Action</span></li>
@@ -133,19 +133,19 @@
       </article>
 
       <!-- Oimo Bubbles -->
-      <article data-id="game-oimobubbles" data-name="Oimo Bubbles" data-categories="puzzle, physics, casual" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-oimobubbles" data-name="Oimo Bubbles" data-categories="puzzle, physics, casual" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-circle.svg" alt="Oimo Bubbles Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Oimo Bubbles</h3>
-            <p class="game-description">Physics-based puzzle game with bubbles and interactive gameplay.</p>
-            <div class="game-actions">
-              <a href="https://oimo.io/works/bubbles/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Oimo Bubbles</h3>
+            <p class="ai-description">Physics-based puzzle game with bubbles and interactive gameplay.</p>
+            <div class="ai-actions">
+              <a href="https://oimo.io/works/bubbles/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -157,19 +157,19 @@
       </article>
 
       <!-- Oimo Blob -->
-      <article data-id="game-oimoblob" data-name="Oimo Blob" data-categories="puzzle, physics, casual" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-oimoblob" data-name="Oimo Blob" data-categories="puzzle, physics, casual" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-circle.svg" alt="Oimo Blob Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Oimo Blob</h3>
-            <p class="game-description">Physics-based game with blob manipulation and creative challenges.</p>
-            <div class="game-actions">
-              <a href="https://oimo.io/works/blob/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Oimo Blob</h3>
+            <p class="ai-description">Physics-based game with blob manipulation and creative challenges.</p>
+            <div class="ai-actions">
+              <a href="https://oimo.io/works/blob/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -181,19 +181,19 @@
       </article>
 
       <!-- Tileman.io -->
-      <article data-id="game-tilemanio" data-name="Tileman.io" data-categories="multiplayer, strategy, arcade" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-tilemanio" data-name="Tileman.io" data-categories="multiplayer, strategy, arcade" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-grid-3x3.svg" alt="Tileman.io Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Tileman.io</h3>
-            <p class="game-description">Multiplayer strategy game where you claim tiles and compete for territory.</p>
-            <div class="game-actions">
-              <a href="https://tileman.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Tileman.io</h3>
+            <p class="ai-description">Multiplayer strategy game where you claim tiles and compete for territory.</p>
+            <div class="ai-actions">
+              <a href="https://tileman.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Multiplayer</span></li>
@@ -205,19 +205,19 @@
       </article>
 
       <!-- Quick, Draw! -->
-      <article data-id="game-quickdraw" data-name="Quick, Draw!" data-categories="drawing, creative, casual" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-quickdraw" data-name="Quick, Draw!" data-categories="drawing, creative, casual" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-pen-tool.svg" alt="Quick Draw Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Quick, Draw!</h3>
-            <p class="game-description">AI-powered drawing game to test your sketching skills.</p>
-            <div class="game-actions">
-              <a href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Quick, Draw!</h3>
+            <p class="ai-description">AI-powered drawing game to test your sketching skills.</p>
+            <div class="ai-actions">
+              <a href="https://quickdraw.withgoogle.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Drawing</span></li>
@@ -229,19 +229,19 @@
       </article>
 
       <!-- The Impossible Quiz -->
-      <article data-id="game-impossiblequiz" data-name="The Impossible Quiz" data-categories="puzzle, trivia, challenging" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-impossiblequiz" data-name="The Impossible Quiz" data-categories="puzzle, trivia, challenging" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-help-circle.svg" alt="Impossible Quiz Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">The Impossible Quiz</h3>
-            <p class="game-description">A challenging and quirky trivia game with unexpected twists.</p>
-            <div class="game-actions">
-              <a href="https://www.addictinggames.com/puzzle/the-impossible-quiz" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">The Impossible Quiz</h3>
+            <p class="ai-description">A challenging and quirky trivia game with unexpected twists.</p>
+            <div class="ai-actions">
+              <a href="https://www.addictinggames.com/puzzle/the-impossible-quiz" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -253,19 +253,19 @@
       </article>
 
       <!-- Tessellation Kit -->
-      <article data-id="game-tessellationkit" data-name="Tessellation Kit" data-categories="puzzle, creative, math" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-tessellationkit" data-name="Tessellation Kit" data-categories="puzzle, creative, math" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-puzzle.svg" alt="Tessellation Kit Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Tessellation Kit</h3>
-            <p class="game-description">Interactive tool for creating and exploring geometric tessellations.</p>
-            <div class="game-actions">
-              <a href="https://sciencevsmagic.net/tes/#0.5.0.1.aaaaaaaaa" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Tessellation Kit</h3>
+            <p class="ai-description">Interactive tool for creating and exploring geometric tessellations.</p>
+            <div class="ai-actions">
+              <a href="https://sciencevsmagic.net/tes/#0.5.0.1.aaaaaaaaa" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -277,19 +277,19 @@
       </article>
 
       <!-- Neal.Fun -->
-      <article data-id="game-nealfun" data-name="Neal.Fun" data-categories="creative, puzzle, casual" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-nealfun" data-name="Neal.Fun" data-categories="creative, puzzle, casual" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-sparkles.svg" alt="Neal.Fun Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Neal.Fun</h3>
-            <p class="game-description">Collection of fun, creative, and interactive web games.</p>
-            <div class="game-actions">
-              <a href="https://neal.fun/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Neal.Fun</h3>
+            <p class="ai-description">Collection of fun, creative, and interactive web games.</p>
+            <div class="ai-actions">
+              <a href="https://neal.fun/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Creative</span></li>
@@ -301,19 +301,19 @@
       </article>
 
       <!-- Skribbl.io -->
-      <article data-id="game-skribblio" data-name="Skribbl.io" data-categories="drawing, multiplayer, casual" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-skribblio" data-name="Skribbl.io" data-categories="drawing, multiplayer, casual" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-pen-tool.svg" alt="Skribbl.io Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Skribbl.io</h3>
-            <p class="game-description">Multiplayer drawing and guessing game for creative fun.</p>
-            <div class="game-actions">
-              <a href="https://skribbl.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Skribbl.io</h3>
+            <p class="ai-description">Multiplayer drawing and guessing game for creative fun.</p>
+            <div class="ai-actions">
+              <a href="https://skribbl.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Drawing</span></li>
@@ -325,19 +325,19 @@
       </article>
 
       <!-- Krunker.io -->
-      <article data-id="game-krunkerio" data-name="Krunker.io" data-categories="shooter, multiplayer, action" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-krunkerio" data-name="Krunker.io" data-categories="shooter, multiplayer, action" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-target.svg" alt="Krunker.io Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Krunker.io</h3>
-            <p class="game-description">Fast-paced multiplayer first-person shooter game.</p>
-            <div class="game-actions">
-              <a href="https://krunker.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Krunker.io</h3>
+            <p class="ai-description">Fast-paced multiplayer first-person shooter game.</p>
+            <div class="ai-actions">
+              <a href="https://krunker.io/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Shooter</span></li>
@@ -349,19 +349,19 @@
       </article>
 
       <!-- Chrome Dino -->
-      <article data-id="game-chromedino" data-name="Chrome Dino" data-categories="arcade, casual, endless" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-chromedino" data-name="Chrome Dino" data-categories="arcade, casual, endless" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-dinosaur.svg" alt="Chrome Dino Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Chrome Dino</h3>
-            <p class="game-description">Classic offline endless runner game with a T-Rex.</p>
-            <div class="game-actions">
-              <a href="https://chromedino.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Chrome Dino</h3>
+            <p class="ai-description">Classic offline endless runner game with a T-Rex.</p>
+            <div class="ai-actions">
+              <a href="https://chromedino.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Arcade</span></li>
@@ -373,19 +373,19 @@
       </article>
 
       <!-- Marbulous Marble Run -->
-      <article data-id="game-marbulousmarblerun" data-name="Marbulous Marble Run" data-categories="puzzle, physics, kids" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-marbulousmarblerun" data-name="Marbulous Marble Run" data-categories="puzzle, physics, kids" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-circle.svg" alt="Marbulous Marble Run Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Marbulous Marble Run</h3>
-            <p class="game-description">Build and race marbles in a physics-based game for kids.</p>
-            <div class="game-actions">
-              <a href="https://pbskids.org/catinthehat/games/marbleous-marvel-coaster" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Marbulous Marble Run</h3>
+            <p class="ai-description">Build and race marbles in a physics-based game for kids.</p>
+            <div class="ai-actions">
+              <a href="https://pbskids.org/catinthehat/games/marbleous-marvel-coaster" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -397,19 +397,19 @@
       </article>
 
       <!-- Cookie Clicker -->
-      <article data-id="game-cookieclicker" data-name="Cookie Clicker" data-categories="idle, casual, strategy" data-starred="true" class="gjs-t-border game-card card-starred">
+      <article data-id="ai-cookieclicker" data-name="Cookie Clicker" data-categories="idle, casual, strategy" data-starred="true" class="gjs-t-border ai-card card-starred">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg?color=%23f5c542" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-cookie.svg" alt="Cookie Clicker Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Cookie Clicker</h3>
-            <p class="game-description">Idle game where you bake cookies to grow your empire.</p>
-            <div class="game-actions">
-              <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Cookie Clicker</h3>
+            <p class="ai-description">Idle game where you bake cookies to grow your empire.</p>
+            <div class="ai-actions">
+              <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Idle</span></li>
@@ -421,19 +421,19 @@
       </article>
 
       <!-- Eaglercraft -->
-      <article data-id="game-eaglercraft" data-name="Eaglercraft" data-categories="sandbox, multiplayer, creative" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-eaglercraft" data-name="Eaglercraft" data-categories="sandbox, multiplayer, creative" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-cube.svg" alt="Eaglercraft Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Eaglercraft</h3>
-            <p class="game-description">Browser-based Minecraft-inspired sandbox game.</p>
-            <div class="game-actions">
-              <a href="https://eaglercraft.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Eaglercraft</h3>
+            <p class="ai-description">Browser-based Minecraft-inspired sandbox game.</p>
+            <div class="ai-actions">
+              <a href="https://eaglercraft.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Sandbox</span></li>
@@ -445,19 +445,19 @@
       </article>
 
       <!-- Human Benchmark -->
-      <article data-id="game-humanbenchmark" data-name="Human Benchmark" data-categories="puzzle, cognitive, challenging" data-starred="false" class="gjs-t-border game-card">
+      <article data-id="ai-humanbenchmark" data-name="Human Benchmark" data-categories="puzzle, cognitive, challenging" data-starred="false" class="gjs-t-border ai-card">
         <button type="button" aria-label="Toggle star" title="Star this game" class="star-toggle-button">
           <img src="https://api.iconify.design/lucide-star.svg" width="18" height="18" alt="Star" loading="lazy" class="star-icon"/>
         </button>
-        <div class="game-card-header">
-          <figure class="game-icon-figure">
+        <div class="ai-card-header">
+          <figure class="ai-icon-figure">
             <img src="https://api.iconify.design/lucide-brain.svg" alt="Human Benchmark Icon" width="48" height="48" loading="lazy"/>
           </figure>
-          <div class="game-text-content">
-            <h3 class="game-name">Human Benchmark</h3>
-            <p class="game-description">Test your cognitive skills with memory and reaction challenges.</p>
-            <div class="game-actions">
-              <a href="https://humanbenchmark.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-game-button">Play Game</a>
+          <div class="ai-text-content">
+            <h3 class="ai-name">Human Benchmark</h3>
+            <p class="ai-description">Test your cognitive skills with memory and reaction challenges.</p>
+            <div class="ai-actions">
+              <a href="https://humanbenchmark.com/" target="_blank" rel="noopener noreferrer" class="gjs-t-button visit-ai-button">Play Game</a>
             </div>
             <ul class="categories-list">
               <li class="category-badge"><span>Puzzle</span></li>
@@ -496,14 +496,14 @@
 
 <script>
 (function() {
-  const grid = document.getElementById('gameGrid');
-  const cards = Array.from(grid.querySelectorAll('.game-card'));
+  const grid = document.getElementById('aiGrid');
+  const cards = Array.from(grid.querySelectorAll('.ai-card'));
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearSearch');
   const resultCount = document.getElementById('resultCount');
   const emptyState = document.getElementById('emptyState');
 
-  const STAR_KEY = 'allthegames-starred-ids';
+  const STAR_KEY = 'alltheais-starred-ids';
 
   function loadStarred() {
     try {
@@ -574,7 +574,7 @@
     });
 
     if(emptyState) emptyState.style.display = shown===0?'block':'none';
-    if(resultCount) resultCount.textContent = q?`Showing ${shown} result${shown===1?'':'s'} for “${searchInput.value}”`:`Showing all games (${shown})`;
+    if(resultCount) resultCount.textContent = q?`Showing ${shown} result${shown===1?'':'s'} for “${searchInput.value}”`:`Showing all AI tools (${shown})`;
 
     renderOrder();
   }
